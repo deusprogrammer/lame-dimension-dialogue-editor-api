@@ -45,6 +45,10 @@ let character = new mongoose.Schema({
 let scriptSchema = new mongoose.Schema({
     id: String,
     editor: String,
+    name: {
+        type: String,
+        default: "Script"
+    },
     characters: {
         type: Map,
         of: character,

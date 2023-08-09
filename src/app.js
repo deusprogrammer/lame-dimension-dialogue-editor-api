@@ -7,6 +7,7 @@ import { jwtAuthStrategy } from './config/passportConfig';
 const scriptsRoute = require('./routes/scriptRoutes');
 const authRoute = require('./routes/authRoutes');
 const userRoute = require('./routes/userRoutes');
+const profileRoute = require('./routes/profileRoutes');
 
 let app = express();
 let port = process.env.PORT || 8080;
@@ -48,6 +49,7 @@ app.use((req, res, next) => {
  */
 app.use('/auth', authRoute);
 app.use('/users', userRoute);
+app.use('/profiles', passport.authenticate('jwt', { session: false }), profileRoute);
 app.use(
     '/scripts',
     passport.authenticate('jwt', { session: false }),
