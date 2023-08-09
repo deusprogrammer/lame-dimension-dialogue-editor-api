@@ -33,7 +33,7 @@ let scene = new mongoose.Schema({
 let chapter = new mongoose.Schema({
     scenes: {
         type: Map,
-        of: scene
+        of: scene,
     },
 });
 
@@ -51,7 +51,7 @@ let scriptSchema = new mongoose.Schema({
     },
     chapters: {
         type: Map,
-        of: chapter
+        of: chapter,
     },
 });
 
